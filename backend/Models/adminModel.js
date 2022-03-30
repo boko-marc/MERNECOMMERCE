@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const AdminSchema = mongoose.Schema({
+const adminSchema = mongoose.Schema({
 
     email : {type:String,
         required:true,
@@ -18,5 +18,5 @@ const AdminSchema = mongoose.Schema({
 }
 );
 
-module.exports = mongoose.model('Admin', AdminSchema);
+module.exports = mongoose.model('Admin', adminSchema);
 

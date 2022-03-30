@@ -1,6 +1,6 @@
 const express = require('express');
 var router = express.Router();
-const userCtrl = require('../Controllers/usersControllers')
+const userCtrl = require('../Controllers/userController')
 router.post('/register',userCtrl.register)
 router.post('/login',userCtrl.login)
 router.get("/profil/:id",userCtrl.profil)

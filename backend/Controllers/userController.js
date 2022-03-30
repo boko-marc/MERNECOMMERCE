@@ -1,9 +1,9 @@
-const User = require('../Models/usersModels')
+const User = require('../Models/userModel')
 const jwt =require('jsonwebtoken');
 require('dotenv').config()
 const bcrypt = require("bcrypt");
 const nodemailer = require('../Config/nodemailerResetPassword.config')
-const Admin = require('../Models/AdminModels')
+const Admin = require('../Models/adminModel')
 
 
 // register function

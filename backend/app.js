@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 // users routes
-const UserRoute = require('./Routes/usersRoutes')
+const UserRoute = require('./Routes/userRoute')
 app.use('/users', UserRoute)
 
 // products routes

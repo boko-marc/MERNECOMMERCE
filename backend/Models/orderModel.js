@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const odersSchema = mongoose.Schema({
+const oderSchema = mongoose.Schema({
     FirstName:{
         type:String, 
         required:true 
@@ -56,4 +56,4 @@ const odersSchema = mongoose.Schema({
 }, {
     timestamps: true
 })
-module.exports = mongoose.model('Order', odersSchema);
+module.exports = mongoose.model('Order', oderSchema);

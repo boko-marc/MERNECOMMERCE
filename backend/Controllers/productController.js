@@ -1,6 +1,6 @@
 const Product = require('../Models/productModel')
 
-// Add products
+// Add product
 exports.addProduct = (req, res) => {
     const product = new Product({
         brand: req.body.brand,
@@ -17,7 +17,7 @@ exports.addProduct = (req, res) => {
         },
         Size: req.body.Size,
         Colors: req.body.Colors,
-        published: req.body.published
+        publishAtHomePage: req.body.publishAtHomePage
     })
 
     product.save()
@@ -31,22 +31,48 @@ exports.addProduct = (req, res) => {
         })
 }
 
-// Retrieve all products
-
+// Retrieve all products by created desc
 exports.findAllProducts = (req, res) => {
-    Product.findAll()
-        .then(data => {
-            res.send(data)
-        })
-        .catch(err => {
-            res.send({
-                err
-            })
-        })
+    Product.find({}).sort({createdAt: -1})
+    .exec((err, data) => {
+        if(!data) {
+            return res.send({
+                error: "Products not found"
+            });
+        }
+
+        if (err) {
+            return res.send({
+                error: err
+            });
+        }
+        res.send(data)
+    })
+}
+
+// Display the last product at homepage  by created desc
+exports.publishAtHomePage = (req, res) => {
+    Product.find({publishAtHomePage: true})
+    .sort({createdAt: -1})
+    .limit(5)
+    .exec((err, data) => {
+        if(!data) {
+            return res.send({
+                error: "Products not found"
+            });
+        }
+
+        if (err) {
+            return res.send({
+                error: err
+            });
+        }
+        res.send(data)
+    })
+
 }
 
 // Get product by Id
-
 exports.findOneProduct = (req, res) => {
     Product.findById(req.params.id)
         .then(data => {

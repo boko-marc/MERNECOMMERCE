@@ -4,7 +4,7 @@ const app = require('./app')
 // databases
 const db = require('../backend/Config/database')
 // Admin add 
-const Admin = require('./Models/AdminModels')
+const Admin = require('./Models/adminModel')
 function initial() {
     Admin.estimatedDocumentCount((err, count) => {
       if (!err && count === 0) {

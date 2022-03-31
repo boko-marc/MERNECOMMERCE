@@ -114,10 +114,17 @@ exports.forgotPassword = (req,res,next) => {
             return res.json({message : 'Email Incorrect , check your email', succes:false})
         }
        
+        const subject = "Welcome"
+        const id = jwt.sign({userId : user._id},process.env.secret)
+        const html = `<h1>This email help you to reset password</h1>
+        <h2>Hello ${user.fullname}</h2>
+        <p>You have started the password change process, click on the link below to finalize the process! Thank you</p></br>
+        <a href=${process.env.urlResetPassword}${id}> Click here</a>
+        </div>`
         nodemailer.sendConfirmationEmail(
-            user.firstName,
             user.email,
-            jwt.sign({userId : user._id},process.env.secret)
+            subject,
+            html
           )
     
           return res.json({message :'You have received an email to change your password!',status:201,succes:true})

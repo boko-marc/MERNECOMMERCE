@@ -33,4 +33,8 @@ app.use('/users', UserRoute)
 const productRoute = require('./Routes/productRoute')
 app.use('/products', productRoute)
 
+
+// whislist routes
+const wishRoute = require('./Routes/wishlistRoute')
+app.use('/wishlist',wishRoute)
 module.exports = app;

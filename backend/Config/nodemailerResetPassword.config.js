@@ -12,15 +12,12 @@ const transport = nodemailer.createTransport({
   },
 });
 
-module.exports.sendConfirmationEmail = (name, email,id) => {
+module.exports.sendConfirmationEmail = (email,subject, htmlbody) => {
   transport.sendMail({
     from: user,
     to: email,
-    subject: "Welcome",
-    html: `<h1>This email help you to reset password</h1>
-        <h2>Hello ${name}</h2>
-        <p>You have started the password change process, click on the link below to finalize the process! Thank you</p></br>
-        <a href=${process.env.urlResetPassword}${id}> Click here</a>
-        </div>`,
+    subject: subject,
+    html: htmlbody
   }).catch(err => console.log(err));
 };
+

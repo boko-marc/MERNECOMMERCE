@@ -29,9 +29,29 @@ app.use((req, res, next) => {
 const UserRoute = require('./Routes/userRoute')
 app.use('/users', UserRoute)
 
+// brand routes
+const BrandRoute = require('./Routes/brandRoute')
+app.use('/brand', BrandRoute)
+
+//cart routes
+const CartRoute = require('./Routes/cartRoute')
+app.use('/cart', CartRoute)
+
+//category routes
+const CategoryRoute = require('./Routes/categoryRoute')
+app.use('/category', CategoryRoute)
+
 // products routes
-const productRoute = require('./Routes/productRoute')
-app.use('/products', productRoute)
+const ProductRoute = require('./Routes/productRoute')
+app.use('/product', ProductRoute)
+
+// collections routes
+const CollectionRoute = require('./Routes/collectionRoute')
+app.use('/collection', CollectionRoute)
+
+//orders routes
+const OrderRoute = require('./Routes/ordersRoute')
+app.use('/order', OrderRoute)
 
 
 // whislist routes

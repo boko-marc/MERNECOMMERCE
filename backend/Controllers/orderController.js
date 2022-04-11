@@ -130,7 +130,3 @@ exports.deleteOneOrder = (req, res) => {
     })
 }
 
-// Add manage order 
-exports.manageOrder = (req, res) => {
-
-}

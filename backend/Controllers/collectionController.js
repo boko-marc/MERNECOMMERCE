@@ -82,7 +82,7 @@ exports.updateOneCollection = (req, res) => {
 }
 
 // Delete collection
-exports.deleteOneCollectione = (req, res) => {
+exports.deleteOneCollection = (req, res) => {
     Collection.findByIdAndRemove(req.params.id)
     .then(data => {
         if(!data) {

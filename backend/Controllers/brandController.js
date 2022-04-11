@@ -7,10 +7,10 @@ exports.addBrand = (req, res) => {
     })
     brand.save()
         .then(data => {
-            res.send(data)
+           return res.send(data)
         })
         .catch(err => {
-            res.send({
+           return res.send({
                 err
             })
         })
@@ -19,10 +19,10 @@ exports.addBrand = (req, res) => {
 // Retrieve all brand
 exports.findAllBrands = (req, res) => {
     Brand.find({}).then((data) => {
-        res.send(data);
+       return res.send(data);
     })
     .catch((err) => {
-        res.send({
+       return res.send({
             error: err || 'Some error occurred while retrieving brands.'
         })
     });
@@ -67,7 +67,7 @@ exports.updateOneBrand = (req, res) => {
                 error: "Brand not found"
             })
         }
-        res.send(data)
+        return res.send(data)
     })
     .catch(err => {
         if(err.kind === "ObjectId") {
@@ -90,7 +90,7 @@ exports.deleteOneBrande = (req, res) => {
                 error: "Brand not found"
             })
         }
-        res.send({
+       return res.send({
             response: "Brand deleted successfully"
         })
     })

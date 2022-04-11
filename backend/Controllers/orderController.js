@@ -1,4 +1,5 @@
 const Order = require('../Models/orderModel')
+const nodemailer = require('../Config/nodemailerResetPassword.config')
 
 // Add order
 exports.addOrder = (req, res) => {
@@ -20,10 +21,10 @@ exports.addOrder = (req, res) => {
 
     order.save()
         .then(data => {
-            res.send(data)
+           return res.send(data)
         })
         .catch(err => {
-            res.send({
+           return res.send({
                 err
             })
         })

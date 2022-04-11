@@ -7,10 +7,10 @@ exports.addCollection = (req, res) => {
     })
     collection.save()
         .then(data => {
-            res.send(data)
+           return res.send(data)
         })
         .catch(err => {
-            res.send({
+           return res.send({
                 err
             })
         })
@@ -19,10 +19,10 @@ exports.addCollection = (req, res) => {
 // Retrieve all collection
 exports.findAllCollections = (req, res) => {
     Collection.find({}).then((data) => {
-        res.send(data);
+       return res.send(data);
     })
     .catch((err) => {
-        res.send({
+       return res.send({
             error: err || 'Some error occurred while retrieving collections.'
         })
     });
@@ -38,7 +38,7 @@ exports.findOneCollection = (req, res) => {
                     error: "Collection not found"
                 })
             }
-            res.send(data)
+           return res.send(data)
         })
         .catch(err => {
             if (err.kind === "ObjectId") {
@@ -67,7 +67,7 @@ exports.updateOneCollection = (req, res) => {
                 error: "Collection not found"
             })
         }
-        res.send(data)
+       return res.send(data)
     })
     .catch(err => {
         if(err.kind === "ObjectId") {
@@ -90,7 +90,7 @@ exports.deleteOneCollection = (req, res) => {
                 error: "Collection not found"
             })
         }
-        res.send({
+       return res.send({
             response: "Collection deleted successfully"
         })
     })

@@ -22,10 +22,10 @@ exports.addProduct = (req, res) => {
 
     product.save()
         .then(data => {
-            res.send(data)
+           return res.send(data)
         })
         .catch(err => {
-            res.send({
+           return res.send({
                 err
             })
         })
